@@ -71,3 +71,33 @@ def create_movie(
         },
     )
     return movies
+
+
+# Este el método que se utiliza para modificar
+@app.put("/movies/{id}", tags=["movies"])
+def update_movie(
+    id: int,
+    title: str = Body(),
+    overview: str = Body(),
+    category: str = Body(),
+    rating: float = Body(),
+    year: int = Body(),
+):
+    for item in movies:
+        if item["id"] == id:
+            item["title"] = title
+            item["overview"] = overview
+            item["category"] = category
+            item["rating"] = rating
+            item["year"] = year
+    return movies
+
+
+@app.delete("/movies/{id}", tags=["movies"])
+def delete_movie(
+    id: int,
+):
+    for item in movies:
+        if item["id"] == id:
+            movies.remove(item)
+    return movies

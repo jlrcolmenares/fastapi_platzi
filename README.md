@@ -17,3 +17,6 @@
 
 # Clase 8
 - Si importamos el método Body() de FastAPI podemos pasar multiples argumentos como un único request en docs de la API
+
+# Clase 10
+- Puede correr validaciones de schemas utilizando PyDantic, una librería incluída en python
