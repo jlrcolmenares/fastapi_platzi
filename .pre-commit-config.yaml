@@ -30,3 +30,12 @@ repos:
       - id: python-no-log-warn
       - id: python-no-eval
       - id: python-check-blanket-noqa
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        types: [python]
+        pass_filenames: false

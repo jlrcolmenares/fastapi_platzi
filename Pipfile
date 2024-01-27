@@ -5,10 +5,12 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
+pytest = "*"
 
 [dev-packages]
 pre-commit = "*"
 yamllint = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.12"
