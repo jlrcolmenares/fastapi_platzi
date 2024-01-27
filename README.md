@@ -23,4 +23,4 @@
 - Creo entender que Pydantic lo que hace es convertir las clases que tenemos en diccionarios, y aplicar validaciones sobre aquellos campos que hemos creado
 
 # Clase 11
-- En
+- Pydantic nos permite agregar validationes automáticas, al importar el campo Field puedes agregarle condiciones que deben cumplir los campos que tenemos.
