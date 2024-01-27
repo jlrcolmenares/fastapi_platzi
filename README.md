@@ -19,4 +19,5 @@
 - Si importamos el método Body() de FastAPI podemos pasar multiples argumentos como un único request en docs de la API
 
 # Clase 10
-- Puede correr validaciones de schemas utilizando PyDantic, una librería incluída en python
+- Puede correr validaciones de schemas utilizando PyDantic, una librería incluída en FastAPI. Al declarara el BaseModel podemos utilizarlo como argumento de entrada para la funciones.
+- Creo entender que Pydantic lo que hace es convertir las clases que tenemos en diccionarios, y aplicar validaciones sobre aquellos campos que hemos creado

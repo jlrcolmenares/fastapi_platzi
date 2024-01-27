@@ -1,5 +1,7 @@
-from fastapi import Body, FastAPI
+from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+
+from models import Movie
 
 app = FastAPI()
 app.title = "Mi aplicación con FastAPI"
@@ -10,7 +12,7 @@ movies = [
     {
         "id": 1,
         "title": "Avatar",
-        "overvie    w": "En un exuberante planeta llamado Pandora viven los Na'vi, seres que ...",
+        "overview": "En un exuberante planeta llamado Pandora viven los Na'vi, seres que ...",
         "year": 2009,
         "rating": 7.8,
         "category": "Acción",
@@ -52,44 +54,21 @@ def get_by_category(category: str, year: int):
 
 
 @app.post("/movies/", tags=["movies"])  #  si terminar así es una query
-def create_movie(
-    id: int = Body(),
-    title: str = Body(),
-    overview: str = Body(),
-    category: str = Body(),
-    rating: float = Body(),
-    year: int = Body(),
-):
-    movies.append(
-        {
-            "id": id,
-            "title": title,
-            "overview": overview,
-            "year": year,
-            "rating": rating,
-            "category": category,
-        },
-    )
+def create_movie(movie: Movie):
+    movies.append(movie)
     return movies
 
 
 # Este el método que se utiliza para modificar
 @app.put("/movies/{id}", tags=["movies"])
-def update_movie(
-    id: int,
-    title: str = Body(),
-    overview: str = Body(),
-    category: str = Body(),
-    rating: float = Body(),
-    year: int = Body(),
-):
+def update_movie(id: int, movie: Movie):
     for item in movies:
         if item["id"] == id:
-            item["title"] = title
-            item["overview"] = overview
-            item["category"] = category
-            item["rating"] = rating
-            item["year"] = year
+            item["title"] = movie.title
+            item["overview"] = movie.overview
+            item["category"] = movie.category
+            item["rating"] = movie.rating
+            item["year"] = movie.year
     return movies
 
 
